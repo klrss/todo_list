@@ -1,0 +1,22 @@
+SELECT DISTINCT status, name from tasks ORDER by name;
+
+SELECT count(name),name FROM tasks as task, projects as project 
+WHERE task.project_id=project.id GROUP BY project_id ORDER by count(task.name) DESC;
+
+SELECT count(name),name FROM tasks as task, projects as project 
+WHERE task.project_id=project.id GROUP BY project_id ORDER by project.name;
+
+SELECT name FROM tasks WHERE name like 'L%';
+
+SELECT count(tasks.name), projects.name FROM tasks,projects WHERE name like '%a%' and tasks.project_id=projects.id
+GROUP by projects.name;
+
+SELECT count(name),name from tasks GROUP by name HAVING count(name)>1 ORDER by name;
+
+SELECT tasks.name from tasks INNER JOIN projects on tasks.project_id=projects.id
+WHERE projects.name == 'Garage' GROUP BY (tasks.name)>1 HAVING count(tasks.name)>1 and count(status)>1
+ORDER by count(tasks.name), count(status);
+
+SELECT projects.name FROM projects INNER JOIN tasks on projects.id=tasks.project_id
+GROUP by tasks.projects_id HAVING count(tasks.name)>10 
+and status=='completed' ORDER by tasks.projects_id
