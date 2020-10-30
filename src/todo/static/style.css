@@ -21,13 +21,7 @@ h3 {
     text-decoration: none;
     font-family: sans-serif;
 }
-#priority {
-    max-width: 8ex;
 
-}
-#radius {
-    border-radius: 25px;
-}
 tbody {
     background-color: white;
 }
