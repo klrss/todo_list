@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container-fluid">
+<h3>Update name of TODO List</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table class="table table-bordered table-sm">
+        <tr>
+            <td><div class="input-group col-12" style="padding:0;"> 
+                
+                {{form_name.name}}
+                        
+            <input type="submit" class="btn btn-primary" value="Update" name="Update_name"></div></td>
+        </tr>
+        
+    </table>
+</form>
+</div>
+
+{% endblock %}

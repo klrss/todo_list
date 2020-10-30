@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container-fluid">
+    <p> Press 'Yes' to delete this {{name}} project.</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+       
+        <input type="submit" value="Yes">
+    </form>
+    <hr />        
+
+       <a href="{% url 'todo:index' %}" class="white">Back to the main page</a>
+    </div>
+{% endblock %}

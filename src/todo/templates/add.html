@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h4>Add TODO List</h4>
+        <div class="container-fluid">
+            <form id="todo-form" action="{% url 'todo:add' %}" method="POST">
+                <div class="row">
+                    {% csrf_token %}
+                    
+                    <div class="form-group col-4">
+                        
+                        {{form_names.name}}
+                    </div>
+                    <div class="form-group col-4">                    
+                        <input type="submit" class="btn btn-primary" value="Add Title" name="Add">
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+        <hr />        
+
+       <a href="{% url 'todo:index' %}" class="white">Back to the main page</a>
+   
+{% endblock %}

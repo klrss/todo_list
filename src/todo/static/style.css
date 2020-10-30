@@ -1,0 +1,43 @@
+#gradient {
+    background-image: linear-gradient(#cecdc0,#ba680b);
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 2rem;
+    font-family: sans-serif;
+    margin: 2rem;
+    
+    
+}
+h3 {
+    text-transform: uppercase;
+}
+
+.task {
+    background-color: #669d7f;
+    align-content: center;
+}
+.white, .white:hover, .white:visited {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+#priority {
+    max-width: 8ex;
+
+}
+#radius {
+    border-radius: 25px;
+}
+tbody {
+    background-color: white;
+}
+th {
+    text-align: left;
+    background-color: #3f6da9;
+    color: white;
+   
+}
+td:hover {
+    background-color: #fbfec2;
+    
+}
