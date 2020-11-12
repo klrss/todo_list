@@ -3,65 +3,63 @@
 {% block body %}
 {% for name in names %}
 <div class="container-fluid">
-    <form id="todo-form" action="" method="POST">  
+    <form id="todo-form" action="" method="POST">
         {% csrf_token %}
         <table class="table table-bordered table-sm" id="">
             <thead>
-                <tr><th colspan="6">
-                <i class="far fa-calendar-alt"></i>&nbsp;
-                {{name}}</th>
-            
-            <th><a href="{% url 'todo:update_project' name.id %}">
-                <i class="fas fa-pencil-alt" style="color: initial;"></i></a></th>
-            <th><a href="{% url 'todo:remove_project' name.id %}">
-                <i class="far fa-trash-alt" style="color: initial"></i></a></th>
-            </tr>
-            <tr>
-        <td colspan="8"><div class="input-group col-12" style="padding:0;">  
-            {{form.title}}
-            {{form.task}}
-            {{form.priority}}
-            {{form.deadline}}            
-        <input type="submit" class="btn btn-primary" value="Add Task" name="Add"></div></td></tr>
-
-    </form>
-
-</tr>
-</thead>
-
-<hr />
-      
-        <tbody>
-                             
-                {% for task in tasks %}  
-                {% ifequal name task.title %}           
                 <tr>
-                <td><input type="checkbox" value="{{task.completed}}"></td>
-                    <td colspan="3">{{task.task}}</td>
-                    <td>{{task.priority}}</td>
-                    <td>{{task.deadline}}</td>
-                    <td style="text-align:right;">
-                        
-                        <a href="{% url 'todo:update_task' task.id %}">
-                            <i class="fas fa-pencil-alt" style="color: initial;"></i>
-                            
-                        </a>
+                    <th colspan="6">
+                        <i class="far fa-calendar-alt"></i>&nbsp;
+                        {{name}}</th>
+                    <th><a href="{% url 'todo:update_project' name.id %}">
+                            <i class="fas fa-pencil-alt" style="color: initial;" title="Edit Name"></i></a></th>
+                    <th><a href="{% url 'todo:remove_project' name.id %}">
+                            <i class="far fa-trash-alt" style="color: initial" title="Delete All"></i></a></th>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <div class="input-group col-12" style="padding:0;">
+                            {{form.title}}
+                            {{form.task}}
+                            {{form.priority}}
+                            {{form.deadline}}&nbsp;
+                            <input type="submit" class="btn btn-primary" value="Add Task" name="Add"></div>
                     </td>
-                <td style="text-align: right;">
-                    <a href="{% url 'todo:remove_task' task.id %}">
-                    <i class="far fa-trash-alt" style="color: initial;"></i></a>
-                </form>
-            </td>
-            </tr>
-            {% endifequal %}
-            {% endfor %}
-                  
-            </tbody>
-            
-        </table>
-<hr />  
+                </tr>
+    </form>
+    </tr>
+    </thead>
+    <hr />
+    <tbody>
+
+        {% for task in tasks %}
+        {% ifequal name task.title %}
+        <td>
+            {% if task.completed %}<i class="fas fa-check"></i>
+            {% endif %}
+        </td>
+        <td colspan="3">{{task.task}}</td>
+        <td>{{task.priority}}</td>
+        <td>{{task.deadline}}</td>
+        <td style="text-align:right;">
+            <a href="{% url 'todo:update_task' task.id %}">
+                <i class="fas fa-pencil-alt" style="color: initial;" title="Edit and Check Task">
+                </i>
+            </a>
+        </td>
+        <td style="text-align: right;">
+            <a href="{% url 'todo:remove_task' task.id %}">
+                <i class="far fa-trash-alt" style="color: initial;" title="Delete Task"></i></a>
+            </form>
+        </td>
+        </tr>
+        {% endifequal %}
+        {% endfor %}
+
+    </tbody>
+    </table>
+    <hr />
 </div>
 {% endfor %}
 <a href="{% url 'todo:add' %}" class="white">Add TODO List</a>
 {% endblock %}
- 

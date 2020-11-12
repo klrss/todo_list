@@ -2,23 +2,25 @@
 
 {% block body %}
 <div class="container-fluid">
-<h3>Update TODO Task</h3>
+    <h3>Update TODO Task</h3>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <table class="table table-bordered table-sm">
-        <tr>
-            <td><div class="input-group col-12" style="padding:0;"> 
-                
-                {{form.title}}
-                {{form.task}}
-                {{form.priority}}
-                {{form.deadline}}            
-            <input type="submit" class="btn btn-primary" value="Update Task" name="Update"></div></td>
-        </tr>
-        
-    </table>
-</form>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table class="table table-bordered table-sm">
+            <tr>
+                <td>
+                    <div class="input-group col-12" style="padding:0;">
+                        {{form.completed}}
+                        {{form.title}}
+                        {{form.task}}
+                        {{form.priority}}
+                        {{form.deadline}}
+                        <input type="submit" class="btn btn-primary" value="Update Task" name="Update"></div>
+                </td>
+            </tr>
+
+        </table>
+    </form>
 </div>
 
 {% endblock %}

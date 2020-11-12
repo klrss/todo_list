@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
 
-
 app_name = "todo"
 
 urlpatterns = [
@@ -14,5 +13,4 @@ urlpatterns = [
     path('task',views.indexView, name="task"), 
     path('task-list', views.todolist, name="todo-list"), 
     
-
 ]
